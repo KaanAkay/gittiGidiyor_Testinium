@@ -19,9 +19,14 @@ public class BaseTest {
 
     @Before
     public void setup(){
+        System.setProperty(driverName,googleDriverPath);
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximazed");
+        options.addArguments("--disable-notifications");
+        driver = new ChromeDriver(options);
         driver.navigate().to(baseUrl);
         logger.info("site Açılıyor.");
-
+        
     }
 
     @After
